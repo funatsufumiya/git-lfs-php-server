@@ -17,4 +17,8 @@ A simple PHP server to serve Git LFS requests.
   - treat as dir path before the endpoint as the repository name
     - ex: `<repository-name>/locks/verify`
 - data will be stored in `data/objects`. The structure is as follows:
-  - `data/objects/<repository-name>/<oid>`
+  - `data/<repository-name>/objects/<oid>`
+
+## Notes
+
+- make sure `data` is writable by the web server user (for example, `sudo chown -R www-data:www-data data` or `sudo chwon -R apache:apache data` or `sudo chown -R nginx:nginx data`)

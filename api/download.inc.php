@@ -7,7 +7,7 @@ if (!array_key_exists('oid', $_GET) || empty($_GET['oid'])) {
 	exit;
 }
 
-$path = 'data/objects'.$dir.$_GET['oid'];
+$path = 'data'.$dir.'objects/'.$_GET['oid'];
 if(file_exists($path)){
 	header('Content-Description: File Transfer');
 	header('Content-Type: application/octet-stream');
