@@ -41,7 +41,7 @@ A simple PHP server to serve Git LFS requests.
     ```
 - data will be stored in `data/`. The structure is as follows:
   - `data/<repository-name>/objects/<oid>`
-- `/locks/verify`, `/objects/batch`, `/upload`, `/download` are the endpoints that Git LFS client will request
+- (note): `/locks/verify`, `/objects/batch`, `/upload`, `/download` are the endpoints that Git LFS client will request
   - treat as dir path before the endpoint as the repository name
     - ex: `<repository-name>/locks/verify`
 
