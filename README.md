@@ -65,5 +65,5 @@ A simple PHP server to serve Git LFS requests.
 
 ## TODOs
 
-- Token Authentication (HTTP Basic auth can be used now, so this means enhancement)
+- Token Authentication
 - Security
