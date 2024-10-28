@@ -22,8 +22,24 @@ A simple PHP server to serve Git LFS requests.
 
 - `$_SERVER['REQUEST_URI']` in `index.php` will be used to determine the endpoint
   - ex: `http://localhost:8080/<repository-name>/locks/verify`
-  - for example nginx, you can use `try_files $uri /index.php;` to redirect all requests to `index.php`
-- data will be stored in `data/objects`. The structure is as follows:
+  - on nginx, you can redirect all requests to `index.php` like below:
+    ```
+    location / {
+        try_files $uri /index.php;
+    }
+    ```
+  - on apache, like below:
+    ```
+    <IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+    RewriteRule ^index\.php$ - [L]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule . /index.php [L]
+    </IfModule>
+    ```
+- data will be stored in `data/`. The structure is as follows:
   - `data/<repository-name>/objects/<oid>`
 - `/locks/verify`, `/objects/batch`, `/upload`, `/download` are the endpoints that Git LFS client will request
   - treat as dir path before the endpoint as the repository name
