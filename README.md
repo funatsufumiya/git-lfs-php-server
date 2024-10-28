@@ -20,7 +20,7 @@ A simple PHP server to serve Git LFS requests.
 
 ### Rewrite rule and concept
 
-- `$_SERVER['REQUEST_URI']` in `index.php` will be used to determine the endpoint
+- `$_SERVER['REQUEST_URI']` in `index.php` is used to determine the endpoint
   - ex: `http://localhost:8080/<repository-name>/locks/verify`
   - on nginx, you can redirect all requests to `index.php` like below:
     ```
