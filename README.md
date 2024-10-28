@@ -3,7 +3,8 @@
 A simple PHP server to serve Git LFS requests.
 
 - No DBs are needed. Just using local file system.
-- Minimal implementation, in order to use on traditional apache-like (non-root or not VPS) PHP web server.
+- No extensions or libralies are needed. Minimal and plain PHP.
+- Created for traditional apache-like (non-root or not VPS) PHP web server.
 
 ## WARNING
 
