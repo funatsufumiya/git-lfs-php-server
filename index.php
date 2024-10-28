@@ -41,7 +41,8 @@ if(isset($_SERVER['HTTP_ACCEPT'])){
 	header('Content-Type: '.$_SERVER['HTTP_ACCEPT']);
 }
 
-$server_url = $config['server_url'];
+// $server_url = $config['server_url'];
+$server_url = _slash_process($config['server_url']);
 
 // treat before api as dir
 $dir = '';
