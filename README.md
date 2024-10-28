@@ -2,7 +2,7 @@
 
 A simple PHP server to serve Git LFS requests.
 
-(Do not use this in production. Security is not guaranteed.)
+(**WARNING**: Do not use this in production. Security is not guaranteed.)
 
 ## Install (on web server)
 
