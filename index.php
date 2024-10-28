@@ -37,6 +37,9 @@ define('IN_GITLFS', true);
 require_once 'config.inc.php';
 
 $api = $_SERVER['REQUEST_URI'];
+# remove query from api
+$api = _str_before($api, '?');
+
 if(isset($_SERVER['HTTP_ACCEPT'])){
 	header('Content-Type: '.$_SERVER['HTTP_ACCEPT']);
 }
@@ -72,6 +75,8 @@ elseif (_str_ends_with($api, '/download'))
 	include 'api/download.inc.php';
 }
 else {
+	echo "dir: $dir\n";
+	echo "api: $api\n";
 	header('HTTP/1.1 404 Not Found');
 	exit;
 }
