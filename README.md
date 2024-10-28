@@ -25,7 +25,7 @@ A simple PHP server to serve Git LFS requests.
   - for example:
     - `sudo chown -R www-data:www-data data`
     - or `sudo chwon -R apache:apache data`
-    - or `sudo chown -R nginx:nginx data`)
+    - or `sudo chown -R nginx:nginx data`
 
 ### Rewrite rule and concept
 
