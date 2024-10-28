@@ -2,12 +2,12 @@
 
 if(!defined('IN_GITLFS')) exit('access denied');
 
-if(empty($_GET['oid'])){
+if (!array_key_exists('oid', $_GET) || empty($_GET['oid'])) {
 	header('HTTP/1.1 404 Not Found');
 	exit;
 }
 
-$path = 'data/objects/'.$_GET['oid'];
+$path = 'data/objects'.$dir.$_GET['oid'];
 if(!file_exists($path)){
 	file_put_contents($path, file_get_contents('php://input'));
 }

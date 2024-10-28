@@ -13,9 +13,9 @@ if($input['operation'] == 'upload'){
 	$objects = $input['objects'];
 	foreach($objects as &$o){
 		$o['authenticated'] = false;
-		if(!file_exists('data/objects/'.$o['oid'])){
+		if(!file_exists('data/objects/'.$dir.$o['oid'])){
 			$o['actions']['upload'] = array(
-				'href' => $server_url.'/upload?oid='.$o['oid'],
+				'href' => $server_url.'/upload?'.http_build_query(array('dir' => $dir, 'oid' => $o['oid'])),
 				'expires_in' => 24 * 3600,
 			);
 		}
@@ -33,9 +33,9 @@ if($input['operation'] == 'upload'){
 	foreach($objects as &$o){
 		$o['authenticated'] = false;
 
-		if(file_exists('data/objects/'.$o['oid'])){
+		if(file_exists('data/objects'.$dir.$o['oid'])){
 			$o['actions']['download'] = array(
-				'href' => $server_url.'/download?oid='.$o['oid'],
+				'href' => $server_url.'/download?'.http_build_query(array('dir' => $dir, 'oid' => $o['oid'])),
 				'expires_in' => 24 * 3600,
 			);
 		}

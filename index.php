@@ -10,6 +10,21 @@ if(isset($_SERVER['HTTP_ACCEPT'])){
 
 $server_url = $config['server_url'];
 
+// get dir if passed
+if(isset($_REQUEST['dir']))
+{
+	$dir = $_REQUEST['dir'];
+	# make sure ends with /
+	if(substr($dir, -1) != '/')
+	{
+		$dir .= '/';
+	}
+}
+else
+{
+	$dir = '/';
+}
+
 switch($api){
 case '/locks/verify':
 	include 'api/locks_verify.inc.php';
