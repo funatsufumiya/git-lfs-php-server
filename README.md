@@ -10,7 +10,7 @@ A simple PHP server to serve Git LFS requests.
 ## WARNING
 
 - Do not use this in production. Security is not guaranteed.
-- Please consider [Rudolfs](https://github.com/jasonwhite/rudolfs) or [Gitea](https://github.com/go-gitea/gitea) if you have root permission or installation rights on web server. You should consider this php server if you only have limited permission on traditional apache(-like) server.
+- Please consider [Rudolfs](https://github.com/jasonwhite/rudolfs) or [Gitea](https://github.com/go-gitea/gitea) if you have root permission or installation rights on web server. This php server will work well if you only have limited permission on traditional apache(-like) server.
 
 ## Install (on web server)
 
