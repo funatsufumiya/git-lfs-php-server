@@ -75,8 +75,6 @@ elseif (_str_ends_with($api, '/download'))
 	include 'api/download.inc.php';
 }
 else {
-	echo "dir: $dir\n";
-	echo "api: $api\n";
 	header('HTTP/1.1 404 Not Found');
 	exit;
 }
