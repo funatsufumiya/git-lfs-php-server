@@ -48,6 +48,7 @@ elseif (_str_ends_with($api, '/objects/batch'))
 {
 	$dir = _str_before($api, '/objects/batch');
 	$dir = _slash_process($dir);
+	echo "api: $api\n";
 	echo "server_url: $server_url\n";
 	echo "dir: $dir\n";
 	include 'api/objects_batch.inc.php';
