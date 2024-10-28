@@ -1,6 +1,9 @@
 <?php
 
-if(!defined('IN_GITLFS')) exit('access denied');
+if(!defined('IN_GITLFS')){
+	header('HTTP/1.1 403 Forbidden');
+	exit('access denied');
+}
 
 $input = file_get_contents('php://input');
 if($input){

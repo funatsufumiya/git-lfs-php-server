@@ -1,6 +1,9 @@
 <?php
 
-if(!defined('IN_GITLFS')) exit('access denied');
+if(!defined('IN_GITLFS')){
+	header('HTTP/1.1 403 Forbidden');
+	exit('access denied');
+}
 
 if (!array_key_exists('oid', $_GET) || empty($_GET['oid'])) {
 	header('HTTP/1.1 404 Not Found');
