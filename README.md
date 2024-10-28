@@ -45,7 +45,7 @@ A simple PHP server to serve Git LFS requests.
   - treat as dir path before the endpoint as the repository name
     - ex: `<repository-name>/locks/verify`
 
-### Notes
+### Authentication
 
 - you can use Basic Auth using nginx or apache (.htaccess) settings.
 
