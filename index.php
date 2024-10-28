@@ -1,41 +1,64 @@
 <?php
 
+function _str_ends_with($haystack, $needle)
+{
+	return substr($haystack, -strlen($needle)) === $needle;
+}
+
+function _str_before($haystack, $needle)
+{
+	$pos = strpos($haystack, $needle);
+	if($pos === false)
+	{
+		return $haystack;
+	}
+	return substr($haystack, 0, $pos);
+}
+
+function _slash_process($str)
+{
+	# - first / will be removed
+	# - make sure last / will be added
+
+	$str = ltrim($str, '/');
+	$str = rtrim($str, '/');
+	$str = $str.'/';
+}
+
 define('IN_GITLFS', true);
 require_once 'config.inc.php';
 
-$api = $_SERVER['SCRIPT_NAME'];
+$api = $_SERVER['REQUEST_URI'];
 if(isset($_SERVER['HTTP_ACCEPT'])){
 	header('Content-Type: '.$_SERVER['HTTP_ACCEPT']);
 }
 
 $server_url = $config['server_url'];
 
-// get dir if passed
-if(isset($_REQUEST['dir']))
-{
-	$dir = $_REQUEST['dir'];
-	# make sure ends with /
-	if(substr($dir, -1) != '/')
-	{
-		$dir .= '/';
-	}
-}
-else
-{
-	$dir = '/';
-}
+// treat before api as dir
+$dir = '';
 
-switch($api){
-case '/locks/verify':
+if (_str_ends_with($api, '/locks/verify'))
+{
+	$dir = _str_before($api, '/locks/verify');
+	$dir = _slash_process($dir);
 	include 'api/locks_verify.inc.php';
-	break;
-case '/objects/batch':
+}
+elseif (_str_ends_with($api, '/objects/batch'))
+{
+	$dir = _str_before($api, '/objects/batch');
+	$dir = _slash_process($dir);
 	include 'api/objects_batch.inc.php';
-	break;
-case '/upload':
+}
+elseif (_str_ends_with($api, '/upload'))
+{
+	$dir = _str_before($api, '/upload');
+	$dir = _slash_process($dir);
 	include 'api/upload.inc.php';
-	break;
-case '/download':
+}
+elseif (_str_ends_with($api, '/download'))
+{
+	$dir = _str_before($api, '/download');
+	$dir = _slash_process($dir);
 	include 'api/download.inc.php';
-	break;
 }

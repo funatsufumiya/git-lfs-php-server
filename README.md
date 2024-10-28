@@ -10,5 +10,11 @@ A simple PHP server to serve Git LFS requests.
 
 ## Concept
 
-- you can pass `dir` as a http query parameter to specify the directory to store the files (`dir` is relative to the `data/objects` directory)
-- if not specified, the files (= `oid`) will be stored in `data/objects`
+- `$_SERVER['REQUEST_URI']` in `index.php` will be used to determine the endpoint
+  - ex: `http://localhost:8080/<repository-name>/locks/verify`
+  - for example nginx, you can use `try_files $uri /index.php;` to redirect all requests to `index.php`
+- `/locks/verify`, `/objects/batch`, `/upload`, `/download` are the endpoints that Git LFS client will request
+  - treat as dir path before the endpoint as the repository name
+    - ex: `<repository-name>/locks/verify`
+- data will be stored in `data/objects`. The structure is as follows:
+  - `data/objects/<repository-name>/<oid>`
