@@ -52,6 +52,7 @@ A simple PHP server to serve Git LFS requests.
 ### Authentication
 
 - you can use Basic Auth using nginx or apache (.htaccess) settings.
+- detailed and segmented auth is not implemented. If you want, please create another server or modify php code as you like.
 
 ## Usage (on git client)
 
