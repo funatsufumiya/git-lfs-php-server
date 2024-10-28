@@ -42,3 +42,8 @@ A simple PHP server to serve Git LFS requests.
 
 - please commit `.lfsconfig` to your repository
 - then, you can use `git lfs` commands. enjoy!
+
+## TODOs
+
+- Authentication (HTTP Basic auth can probably be used now, so this means token verification or something)
+- Security
