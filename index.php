@@ -7,7 +7,7 @@ function _str_ends_with($haystack, $needle)
 
 function _str_before($haystack, $needle)
 {
-	$pos = strpos($haystack, $needle);
+	$pos = strrpos($haystack, $needle);
 	if($pos === false)
 	{
 		return $haystack;
@@ -20,9 +20,17 @@ function _slash_process($str)
 	# - first / will be removed
 	# - make sure last / will be added
 
-	$str = ltrim($str, '/');
-	$str = rtrim($str, '/');
-	$str = $str.'/';
+	## remove first /
+	if(substr($str, 0, 1) == '/')
+	{
+		$str = substr($str, 1);
+	}
+	## add last /
+	if(substr($str, -1) != '/')
+	{
+		$str = $str.'/';
+	}
+	return $str;
 }
 
 define('IN_GITLFS', true);
