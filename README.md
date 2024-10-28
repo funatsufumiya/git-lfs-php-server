@@ -12,6 +12,7 @@ A simple PHP server to serve Git LFS requests.
 ### Configure
 
 - create `config.inc.php` using `default-config.inc.php` as a template
+- Please edit `server_url`
 
 ### Change permissions
 
