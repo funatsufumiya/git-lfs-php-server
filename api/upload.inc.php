@@ -18,6 +18,3 @@ if(!file_exists('data/'.$dir.'objects')){
 if(!file_exists($path)){
 	file_put_contents($path, file_get_contents('php://input'));
 }
-
-echo "dir = $dir\n";
-echo "path = $path\n";
