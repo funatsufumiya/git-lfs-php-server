@@ -71,3 +71,7 @@ elseif (_str_ends_with($api, '/download'))
 	$dir = _slash_process($dir);
 	include 'api/download.inc.php';
 }
+else {
+	header('HTTP/1.1 404 Not Found');
+	exit;
+}
