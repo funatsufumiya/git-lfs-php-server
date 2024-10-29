@@ -78,3 +78,9 @@ A simple PHP server to serve Git LFS requests.
 - Token Authentication
 - Auth per repository (or owner)
 - Security
+
+## License
+
+At this time, the copyright is held by the original owner of [the forked source](https://github.com/takashiro/git-lfs-server). The fork source is in archived status and is currently confirming its intentions.
+
+(Note: with the current "No License", anyone can use GitHub functions such as fork, PR, code browsing, and download, but not allowed to copy or modify outside of GitHub.)
