@@ -79,6 +79,10 @@ A simple PHP server to serve Git LFS requests.
 - Auth per repository (or owner)
 - Security
 
+## Known Issues
+
+- Please turn off WAF. WAF makes upload trouble.
+
 ## License
 
 At this time, the copyright is held by the original owner of [the forked source](https://github.com/takashiro/git-lfs-server). The fork source is in archived status and currently confirming owner's intentions.
