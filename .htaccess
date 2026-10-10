@@ -1,0 +1,20 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+<Files ".htaccess">
+Require all denied
+</Files>
+
+<Files "README.md">
+Require all denied
+</Files>
+
+<Files "default-config.inc.php">
+Require all denied
+</Files>
